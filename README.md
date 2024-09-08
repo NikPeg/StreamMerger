@@ -8,7 +8,9 @@ StreamMerger is a Python tool that collects and merges real-time ticker data fro
 2. Install requirements:  
 `pip3 install requirements.txt`
 
-## Выкатка бэкенда:
-docker compose up -d  
-Пересобрать образ:  
-docker compose -f compose.yaml build web  
+## Deployment
+1. Install docker: `apt install docker.io`
+2. Install docker-compose: curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose  
+   `chmod +x /usr/local/bin/docker-compose`
+3. Go to the main directory: `cd StreamMerger`
+4. Start container: `make up`
