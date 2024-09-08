@@ -1,5 +1,5 @@
 # Variables
-DOCKER_COMPOSE = docker-compose -f compose.yaml
+DOCKER_COMPOSE = docker-compose -f deployment/compose.yaml
 PROJECT_NAME = stream-merger
 
 .PHONY: up build down clean logs

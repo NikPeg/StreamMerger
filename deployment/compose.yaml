@@ -3,7 +3,8 @@ name: stream-merger
 services:
   web:
     build:
-#      context: backend
+      context: ..
       target: builder
+      dockerfile: deployment/Dockerfile
     ports:
       - '8080:8080'
