@@ -14,7 +14,7 @@ html, body {
     justify-content: center;
     align-items: center;
     height: 100%;
-    color: #dad39c;
+    color: #DAA520;
     text-align: center;
 }
 
@@ -22,7 +22,7 @@ html, body {
     background: rgba(0, 17, 60, 0.9); /* Updated background color with slight transparency */
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0px 0px 5px 2px #dad39c; /* Glow effect */
+    box-shadow: 0px 0px 5px 2px #DAA520; /* Glow effect */
     text-align: center;
 }
 
@@ -57,7 +57,7 @@ html, body {
 }
 
 .dropbtn {
-    background-color: #dad39c; /* Hi-tech cyan button color */
+    background-color: #DAA520; /* Hi-tech cyan button color */
     color: black;
     padding: 10px 20px;
     margin: 10px;
@@ -65,12 +65,12 @@ html, body {
     cursor: pointer;
     border-radius: 5px;
     font-size: 1em;
-    box-shadow: 0 0 10px #dad39c;
+    box-shadow: 0 0 10px #DAA520;
     transition: transform 0.3s;
 }
 
 .dropbtn:hover {
-    background-color: #dddbaa; /* Lighter cyan on hover */
+    background-color: #DAA520; /* Lighter cyan on hover */
     transform: scale(1.05);
 }
 
@@ -84,9 +84,9 @@ html, body {
     position: absolute;
     left: 0; /* Ensure left alignment */
     right: 0; /* Ensure right alignment */
-    background-color: #dad39c;
+    background-color: #DAA520;
     min-width: 160px;
-    box-shadow: 0 0 5px #dad39c;
+    box-shadow: 0 0 5px #DAA520;
     z-index: 1;
     border-radius: 5px;
 }
@@ -100,7 +100,7 @@ html, body {
 }
 
 .dropdown-content a:hover {
-    background-color: #dad39c; /* Hi-tech color on hover */
+    background-color: #DAA520; /* Hi-tech color on hover */
     color: black;
 }
 
