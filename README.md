@@ -7,3 +7,8 @@ StreamMerger is a Python tool that collects and merges real-time ticker data fro
 `pyenv activate sm`  
 2. Install requirements:  
 `pip3 install requirements.txt`
+
+## Выкатка бэкенда:
+docker compose up -d  
+Пересобрать образ:  
+docker compose -f compose.yaml build web  

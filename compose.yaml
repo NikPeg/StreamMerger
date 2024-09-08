@@ -1,0 +1,9 @@
+name: stream-merger
+
+services:
+  web:
+    build:
+#      context: backend
+      target: builder
+    ports:
+      - '8080:8080'
