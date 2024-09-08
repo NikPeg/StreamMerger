@@ -1,0 +1,21 @@
+html, body {
+    height: 100%;
+    margin: 0;               /* Remove default margin */
+    padding: 0;              /* Remove default padding */
+}
+
+body {
+    background-image: url("../images/background.jpg");
+    background-size: cover;             /* Cover the entire area */
+    background-position: center;        /* Center the image */
+    background-repeat: no-repeat;       /* Prevent background repeat */
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;            /* Ensure the content div takes up the full height */
+    text-align: center;
+    color: #ffffff;          /* Text color to contrast with background image, change as needed */
+}

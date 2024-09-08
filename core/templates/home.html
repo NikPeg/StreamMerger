@@ -3,9 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Home Page</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'core/css/styles.css' %}">
 </head>
 <body>
-<h1>Welcome to My Django App</h1>
-<p>This is the home page.</p>
+<div class="content">
+    <div>
+        <h1>Welcome to My Django App</h1>
+        <p>This is the home page.</p>
+    </div>
+</div>
 </body>
 </html>
