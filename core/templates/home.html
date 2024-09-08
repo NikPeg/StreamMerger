@@ -2,16 +2,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Home Page</title>
+    <title>StreamMerger</title>
     {% load static %}
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static 'core/css/styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 <div class="content">
-    <div>
-        <h1>Welcome to My Django App</h1>
-        <p>This is the home page.</p>
+    <div class="menu">
+        <h1>StreamMerger</h1>
+        <div class="dropdown">
+            <button class="dropbtn">Trading pair: BTC/USDT</button>
+            <div class="dropdown-content">
+                <a href="#">BTC/USDT</a>
+                <a href="#">ETH/USDT</a>
+                <a href="#">LTC/USDT</a>
+                <a href="#">XRP/USDT</a>
+            </div>
+        </div>
+        <br/>
+        <div class="dropdown">
+            <button class="dropbtn">Number of streams: 2</button>
+            <div class="dropdown-content">
+                <a href="#">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+            </div>
+        </div>
+        <br/>
+        <button class="listen-btn"><i class="fas fa-play"></i> Listen</button>
     </div>
 </div>
+<script src="{% static 'core/js/scripts.js' %}"></script>
 </body>
 </html>
