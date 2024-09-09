@@ -1,6 +1,8 @@
 import asyncio
 import json
 import random
+import signal
+import sys
 import time
 import logging
 import os
@@ -10,13 +12,14 @@ import websockets
 def get_session_logger(session_slug):
     logger = logging.getLogger(session_slug)
     if not logger.handlers:
-        log_dir = os.path.join("..", 'logs')
+        log_dir = os.path.join(".", 'logs')
         os.makedirs(log_dir, exist_ok=True)
         file_handler = logging.FileHandler(os.path.join(log_dir, f'{session_slug}.log'))
         formatter = logging.Formatter('%(levelname)s %(asctime)s %(module)s %(message)s')
         file_handler.setFormatter(formatter)
         logger.addHandler(file_handler)
         logger.setLevel(logging.DEBUG)
+        logger.propagate = False  # Prevent log messages from being propagated to the root logger
     return logger
 
 # Function to connect to WebSocket and get data
@@ -94,11 +97,32 @@ async def listen_streams(session_slug, num_streams, trading_pair):
 
         await asyncio.sleep(1)  # Iterate every second
 
+def signal_handler(signal, frame, loop):
+    for task in asyncio.all_tasks(loop):
+        task.cancel()
 
-# Run the main async function
+async def main(session_slug, streams_count, trading_pair):
+    logger = get_session_logger(session_slug)
+    logger.info("Start logging...")
+
+    loop = asyncio.get_running_loop()
+
+    # Define the signal handler with correct arguments
+    def handler(signal, frame):
+        signal_handler(signal, frame, loop)
+
+    # Register signal handler
+    signal.signal(signal.SIGINT, handler)
+    signal.signal(signal.SIGTERM, handler)
+
+    try:
+        await listen_streams(session_slug, streams_count, trading_pair)
+    except asyncio.CancelledError:
+        logger.info("Streams listening task was cancelled")
+    finally:
+        logger.info("Shutting down...")
+
 if __name__ == "__main__":
-    import sys
-
     if len(sys.argv) != 4:
         print(f"Usage: {sys.argv[0]} <session_slug> <streams_count> <trading_pair>")
         sys.exit(1)
@@ -107,4 +131,5 @@ if __name__ == "__main__":
     streams_count = int(sys.argv[2])
     trading_pair = sys.argv[3]
 
-    asyncio.run(listen_streams(session_slug, streams_count, trading_pair))
+    # Execute the main coroutine
+    asyncio.run(main(session_slug, streams_count, trading_pair))
