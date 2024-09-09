@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
         item.addEventListener('click', function(event) {
             selectedPair = event.target.textContent;
             console.log('Selected Trading Pair:', selectedPair);
-            document.getElementById('dropdown1').textContent = 'Trading pair: ' + selectedPair;
+            document.getElementById('dropdown1').textContent = 'Trading Pair: ' + selectedPair;
         });
     });
 

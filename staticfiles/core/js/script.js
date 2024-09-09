@@ -20,7 +20,7 @@ var pairLinks = document.getElementById('pair-dropdown').getElementsByTagName('a
 for (var i = 0; i < pairLinks.length; i++) {
 pairLinks[i].addEventListener('click', function(e) {
   e.preventDefault(); // Prevent the default link action
-  var newText = 'Trading pair: ' + this.innerText;
+  var newText = 'Trading Pair: ' + this.innerText;
   changeDropdownText('dropdown1', newText);
 });
 }
@@ -30,7 +30,7 @@ var streamLinks = document.getElementById('stream-dropdown').getElementsByTagNam
 for (var i = 0; i < streamLinks.length; i++) {
 streamLinks[i].addEventListener('click', function(e) {
   e.preventDefault(); // Prevent the default link action
-  var newText = 'Number of streams: ' + this.innerText;
+  var newText = 'Number of Streams: ' + this.innerText;
   changeDropdownText('dropdown2', newText);
 });
 }
