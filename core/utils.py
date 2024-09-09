@@ -1,21 +1,22 @@
 import asyncio
 import json
+import logging
+import os
 import random
 import signal
 import sys
 import time
-import logging
-import os
+
 import websockets
 
 
 def get_session_logger(session_slug):
     logger = logging.getLogger(session_slug)
     if not logger.handlers:
-        log_dir = os.path.join(".", 'logs')
+        log_dir = os.path.join(".", "logs")
         os.makedirs(log_dir, exist_ok=True)
-        file_handler = logging.FileHandler(os.path.join(log_dir, f'{session_slug}.log'))
-        formatter = logging.Formatter('%(levelname)s %(asctime)s %(module)s %(message)s')
+        file_handler = logging.FileHandler(os.path.join(log_dir, f"{session_slug}.log"))
+        formatter = logging.Formatter("%(levelname)s %(asctime)s %(module)s %(message)s")
         file_handler.setFormatter(formatter)
         logger.addHandler(file_handler)
         logger.setLevel(logging.DEBUG)
@@ -43,13 +44,13 @@ async def get_stream_data(uri, callback, stream_name, logger):
 # Callback for processing data from each stream
 async def on_message(data, stream_name):
     timestamp = time.time()
-    stream_data.append({'timestamp': timestamp, 'data': data, 'stream': stream_name})
+    stream_data.append({"timestamp": timestamp, "data": data, "stream": stream_name})
 
 
 # Remove old records to keep data up to date
 def remove_old_records(combined_data, max_age=2):
     current_time = time.time()
-    combined_data[:] = [d for d in combined_data if current_time - d['timestamp'] < max_age]
+    combined_data[:] = [d for d in combined_data if current_time - d["timestamp"] < max_age]
 
 
 # Simulate random network issues
@@ -77,7 +78,7 @@ async def listen_streams(session_slug, num_streams, trading_pair):
     # Create and run tasks for all streams
     tasks = []
     for i in range(num_streams):
-        stream_name = f'{session_slug}_stream{i + 1}'
+        stream_name = f"{session_slug}_stream{i + 1}"
         tasks.append(simulate_network_issue(uris[i], on_message, stream_name, logger))
 
     for task in tasks:
@@ -91,7 +92,7 @@ async def listen_streams(session_slug, num_streams, trading_pair):
 
         # Sort data by timestamp and select the latest ticker
         if combined_data:
-            combined_data.sort(key=lambda x: x['timestamp'])
+            combined_data.sort(key=lambda x: x["timestamp"])
             latest_data = combined_data[-1]
             logger.info("Latest Data: %s", latest_data)
 

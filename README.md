@@ -1,5 +1,18 @@
 # StreamMerger
 StreamMerger is a Python web application that collects and merges real-time ticker data from two Binance Futures WebSocket connections. It ensures robustness against network issues by selecting the most up-to-date events with minimal latency. The merged data is saved into a CSV file, supporting specific trading pairs like BTC/USDT and multiple event types.
+
+# Usage
+1. Activate your virtual environment:  
+   `pyenv virtualenv 3.10.12 sm`  
+   `pyenv activate sm`
+2. Install requirements:  
+   `pip3 install requirements.txt`
+3. Run script:  
+   `python core/utils.py session_slug 2 btcusdt`  
+(session_slug is used for different runs, 2 is streams count, btcusdt is trading pair)
+4. Press Ctrl+C to stop it
+5. Your file will be in logs/session_slug.log
+
 # Check it online
 You can use this app online: https://internal-apt-piranha.ngrok-free.app/  
 Or clone the repository and use it locally.
@@ -31,5 +44,3 @@ http://127.0.0.1:8080/
 `python3 manage.py runserver`
 5. You can open your app:  
 http://127.0.0.1:8080/
-
-## Management commands
