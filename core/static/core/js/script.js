@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
         item.addEventListener('click', function(event) {
             selectedStreams = event.target.textContent;
             console.log('Selected Number of Streams:', selectedStreams);
-            document.getElementById('dropdown2').textContent = 'Number of streams: ' + selectedStreams;
+            document.getElementById('dropdown2').textContent = 'Number of Streams: ' + selectedStreams;
         });
     });
 
