@@ -35,6 +35,7 @@ ALLOWED_HOSTS = [
     "internal-apt-piranha.ngrok-free.app",
     "localhost",
     "127.0.0.1",
+    "0.0.0.0",
 ]
 
 # Application definition

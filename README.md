@@ -41,6 +41,6 @@ http://127.0.0.1:8080/
 3. Use migrations:  
 `python3 manage.py migrate`
 4. Run server:  
-`python3 manage.py runserver`
+`python3 manage.py runserver 0.0.0.0:8080`
 5. You can open your app:  
 http://127.0.0.1:8080/
