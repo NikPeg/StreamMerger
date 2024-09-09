@@ -107,3 +107,16 @@ html, body {
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
+.btn {
+    background-color: #DAA520; /* Hi-tech cyan button color */
+    color: black;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    cursor: auto;
+    border-radius: 5px;
+    font-size: 1em;
+    box-shadow: 0 0 10px #DAA520;
+    transition: transform 0.3s;
+}

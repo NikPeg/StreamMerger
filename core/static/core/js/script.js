@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Event listener for Listen button
     document.querySelector('.listen-btn').addEventListener('click', function() {
         const baseUrl = window.location.origin;
-        const path = '/listening';
+        const path = '/listen';
         const url = `${baseUrl}${path}?pair=${encodeURIComponent(selectedPair)}&streams=${encodeURIComponent(selectedStreams)}`;
         window.location.href = url;
     });
