@@ -19,7 +19,7 @@ Install it if you haven't:
 4. You can open your app in browser:  
 http://127.0.0.1:8080/
 
-## Run server locally (without docker):
+## Development
 1. Activate your virtual environment:  
 `pyenv virtualenv 3.10.12 sm`
 `pyenv activate sm`  
