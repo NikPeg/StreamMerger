@@ -9,3 +9,22 @@ window.onload = function() {
             btn2.style.width = maxWidth + 'px';
         }
     };
+
+document.addEventListener('DOMContentLoaded', function() {
+   const tradingPairsDropdown = document.getElementById('trading-pairs');
+   const numberOfStreamsDropdown = document.getElementById('number-of-streams');
+
+   tradingPairsDropdown.querySelectorAll('a').forEach(item => {
+       item.addEventListener('click', function(event) {
+           console.log('Selected Trading Pair:', event.target.textContent);
+           document.getElementById('dropdown1').textContent = "Trading Pair: " + event.target.textContent;
+       });
+   });
+
+   numberOfStreamsDropdown.querySelectorAll('a').forEach(item => {
+       item.addEventListener('click', function(event) {
+           console.log('Selected Number of Streams:', event.target.textContent);
+           document.getElementById('dropdown2').textContent = "Number of Streams: " + event.target.textContent;
+       });
+   });
+});

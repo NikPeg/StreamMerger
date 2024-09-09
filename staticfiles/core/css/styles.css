@@ -1,0 +1,109 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-image: url("../images/background.jpg"); /* Ensure the correct path to your background image */
+    background-size: cover;             /* Ensure the image covers the entire area */
+    background-position: center;        /* Center the image */
+    background-repeat: no-repeat;       /* Prevent background repeat */
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: #DAA520;
+    text-align: center;
+}
+
+.menu {
+    background: rgba(0, 17, 60, 0.9); /* Updated background color with slight transparency */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 2px #DAA520; /* Glow effect */
+    text-align: center;
+}
+
+.menu h1 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.listen-btn {
+    background-color: #afe0f1;
+    color: black;
+    padding: 15px 30px;  /* Increase padding for a larger button */
+    margin: 20px auto;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1.5em;  /* Increase font size */
+    box-shadow: 0 0 10px #afe0f1;
+    transition: transform 0.3s, background-color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.listen-btn .fa-play {
+    margin-right: 10px;  /* Space between icon and text */
+}
+
+.listen-btn:hover {
+    background-color: #09c4b2;  /* Lighter cyan on hover */
+    transform: scale(1.05);
+}
+
+.dropbtn {
+    background-color: #DAA520; /* Hi-tech cyan button color */
+    color: black;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1em;
+    box-shadow: 0 0 10px #DAA520;
+    transition: transform 0.3s;
+}
+
+.dropbtn:hover {
+    background-color: #DAA520; /* Lighter cyan on hover */
+    transform: scale(1.05);
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    left: 0; /* Ensure left alignment */
+    right: 0; /* Ensure right alignment */
+    background-color: #806012;
+    min-width: 160px;
+    box-shadow: 0 0 5px #DAA520;
+    z-index: 1;
+    border-radius: 5px;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: block;
+    border-radius: 5px;
+}
+
+.dropdown-content a:hover {
+    background-color: #DAA520; /* Hi-tech color on hover */
+    color: black;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
