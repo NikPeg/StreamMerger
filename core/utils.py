@@ -4,15 +4,13 @@ import random
 import time
 import logging
 import os
-from django.conf import settings
 import websockets
 
 
 def get_session_logger(session_slug):
     logger = logging.getLogger(session_slug)
     if not logger.handlers:
-        # If the logger has no handlers, configure it
-        log_dir = os.path.join(settings.BASE_DIR, 'logs')
+        log_dir = os.path.join("..", 'logs')
         os.makedirs(log_dir, exist_ok=True)
         file_handler = logging.FileHandler(os.path.join(log_dir, f'{session_slug}.log'))
         formatter = logging.Formatter('%(levelname)s %(asctime)s %(module)s %(message)s')
@@ -92,7 +90,7 @@ async def listen_streams(session_slug, num_streams, trading_pair):
         if combined_data:
             combined_data.sort(key=lambda x: x['timestamp'])
             latest_data = combined_data[-1]
-            logger.info("Latest Data: ", latest_data)
+            logger.info("Latest Data: %s", latest_data)
 
         await asyncio.sleep(1)  # Iterate every second
 
