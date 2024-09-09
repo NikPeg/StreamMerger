@@ -11,20 +11,34 @@ window.onload = function() {
     };
 
 document.addEventListener('DOMContentLoaded', function() {
-   const tradingPairsDropdown = document.getElementById('trading-pairs');
-   const numberOfStreamsDropdown = document.getElementById('number-of-streams');
+    const tradingPairsDropdown = document.getElementById('trading-pairs');
+    const numberOfStreamsDropdown = document.getElementById('number-of-streams');
+    let selectedPair = 'BTC/USDT';
+    let selectedStreams = '2';
 
-   tradingPairsDropdown.querySelectorAll('a').forEach(item => {
-       item.addEventListener('click', function(event) {
-           console.log('Selected Trading Pair:', event.target.textContent);
-           document.getElementById('dropdown1').textContent = "Trading Pair: " + event.target.textContent;
-       });
-   });
+    // Event listeners for trading pairs
+    tradingPairsDropdown.querySelectorAll('a').forEach(item => {
+        item.addEventListener('click', function(event) {
+            selectedPair = event.target.textContent;
+            console.log('Selected Trading Pair:', selectedPair);
+            document.getElementById('dropdown1').textContent = 'Trading pair: ' + selectedPair;
+        });
+    });
 
-   numberOfStreamsDropdown.querySelectorAll('a').forEach(item => {
-       item.addEventListener('click', function(event) {
-           console.log('Selected Number of Streams:', event.target.textContent);
-           document.getElementById('dropdown2').textContent = "Number of Streams: " + event.target.textContent;
-       });
-   });
+    // Event listeners for number of streams
+    numberOfStreamsDropdown.querySelectorAll('a').forEach(item => {
+        item.addEventListener('click', function(event) {
+            selectedStreams = event.target.textContent;
+            console.log('Selected Number of Streams:', selectedStreams);
+            document.getElementById('dropdown2').textContent = 'Number of streams: ' + selectedStreams;
+        });
+    });
+
+    // Event listener for Listen button
+    document.querySelector('.listen-btn').addEventListener('click', function() {
+        const baseUrl = window.location.origin;
+        const path = '/listening';
+        const url = `${baseUrl}${path}?pair=${encodeURIComponent(selectedPair)}&streams=${encodeURIComponent(selectedStreams)}`;
+        window.location.href = url;
+    });
 });
