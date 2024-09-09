@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const urlParams = new URLSearchParams(window.location.search);
     const tradingPair = urlParams.get('pair') || 'BTC/USDT';
     const streams = urlParams.get('streams') || '2';
+    const session = urlParams.get('session') || 'meme';
 
     document.getElementById('dropdown1').textContent = "Trading Pair: " + tradingPair;
     const breakButtonsContainer = document.getElementById('break-buttons');
@@ -14,4 +15,11 @@ document.addEventListener('DOMContentLoaded', function() {
         breakButtonsContainer.appendChild(button);
         breakButtonsContainer.appendChild(document.createElement('br'));
     }
+
+    document.querySelector('.listen-btn').addEventListener('click', function() {
+        const baseUrl = window.location.origin;
+        const path = '/result';
+        const url = `${baseUrl}${path}?session=${session}`;
+        window.location.href = url;
+    });
 });

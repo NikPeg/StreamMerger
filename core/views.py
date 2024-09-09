@@ -7,3 +7,7 @@ def home(request):
 
 def listen(request):
     return render(request, 'listen.html')
+
+
+def result(request):
+    return render(request, 'result.html')

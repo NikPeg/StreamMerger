@@ -34,11 +34,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Generate random slug for session
+    let session = (Math.random() + 1).toString(36).substring(7);
+
     // Event listener for Listen button
     document.querySelector('.listen-btn').addEventListener('click', function() {
         const baseUrl = window.location.origin;
         const path = '/listen';
-        const url = `${baseUrl}${path}?pair=${encodeURIComponent(selectedPair)}&streams=${encodeURIComponent(selectedStreams)}`;
+        const url = `${baseUrl}${path}?session=${session}&pair=${encodeURIComponent(selectedPair)}&streams=${encodeURIComponent(selectedStreams)}`;
         window.location.href = url;
     });
 });
