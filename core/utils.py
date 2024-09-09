@@ -23,6 +23,7 @@ def get_session_logger(session_slug):
         logger.propagate = False  # Prevent log messages from being propagated to the root logger
     return logger
 
+
 # Function to connect to WebSocket and get data
 async def get_stream_data(uri, callback, stream_name, logger):
     while True:
@@ -90,17 +91,19 @@ async def listen_streams(session_slug, num_streams, trading_pair):
         stream_data.clear()
         remove_old_records(combined_data)
 
-        # Sort data by timestamp and select the latest ticker
+        # Sort data by timestamp and select the most relevant ticker
         if combined_data:
             combined_data.sort(key=lambda x: x["timestamp"])
-            latest_data = combined_data[-1]
-            logger.info("Latest Data: %s", latest_data)
+            actual_data = combined_data[0]
+            logger.info("The most relevant data: %s", actual_data)
 
         await asyncio.sleep(1)  # Iterate every second
+
 
 def signal_handler(signal, frame, loop):
     for task in asyncio.all_tasks(loop):
         task.cancel()
+
 
 async def main(session_slug, streams_count, trading_pair):
     logger = get_session_logger(session_slug)
@@ -123,6 +126,7 @@ async def main(session_slug, streams_count, trading_pair):
     finally:
         logger.info("Shutting down...")
         print(f"\nYour log is in logs/{session_slug}.log")
+
 
 if __name__ == "__main__":
     if len(sys.argv) != 4:

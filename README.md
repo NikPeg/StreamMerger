@@ -9,7 +9,9 @@ StreamMerger is a Python web application that collects and merges real-time tick
    `pip3 install requirements.txt`
 3. Run script:  
    `python core/utils.py session_slug 2 btcusdt`  
-(session_slug is used for different runs, 2 is streams count, btcusdt is trading pair)
+- session_slug is used for different sessions. You can specify any symbols for ease.
+- 2 is a streams count. It can be any number from 1.
+- btcusdt is trading pair. You can also select: btcusdt, ethusdt, ltcusdt...
 4. Press Ctrl+C to stop it
 5. Your file will be in logs/session_slug.log
 
