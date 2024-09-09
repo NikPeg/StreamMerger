@@ -56,9 +56,9 @@ def remove_old_records(combined_data, max_age=2):
 async def simulate_network_issue(uri, callback, stream_name, logger):
     while True:
         await get_stream_data(uri, callback, stream_name, logger)
-        await asyncio.sleep(random.randint(10, 20))  # Simulate connection disruption
+        await asyncio.sleep(random.randint(0, 10))  # Simulate connection disruption
         logger.info(f"Simulating network issue for {stream_name}")
-        await asyncio.sleep(random.randint(5, 10))  # Simulate downtime after issue
+        await asyncio.sleep(random.randint(0, 10))  # Simulate downtime after issue
 
 
 # Main function to run the streams
@@ -121,6 +121,7 @@ async def main(session_slug, streams_count, trading_pair):
         logger.info("Streams listening task was cancelled")
     finally:
         logger.info("Shutting down...")
+        print(f"\nYour log is in logs/{session_slug}.log")
 
 if __name__ == "__main__":
     if len(sys.argv) != 4:
